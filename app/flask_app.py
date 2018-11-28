@@ -25,11 +25,9 @@ def index():
 @app.route('/vikas')
 def my_barplot():
     """
-    reads a csv file where the first column is a count and the second is a date
-    and plots the last 30 entries
+    This function creates barchart
     """
     df = pd.read_csv('/home/vikibytes/mysite/app/dbtable.csv')
-    #df = pd.read_excel("data/data.xlsx", header=None, names=['count', 'date'])
 
     x_labels = df['CallDate'].values
     x_coordinates = np.arange(len(x_labels))
