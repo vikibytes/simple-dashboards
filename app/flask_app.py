@@ -33,8 +33,13 @@ def my_barplot():
     x_coordinates = np.arange(len(x_labels))
 
     bar_heights = df['count'].values
+    bar1 = plt.bar(x_coordinates, bar_heights, align='center', color=['lightblue'], edgecolor=['grey'])
     plt.bar(x_coordinates, bar_heights, align='center', color=['lightblue'], edgecolor=['grey'])
     plt.xticks(x_coordinates, x_labels, rotation='vertical')
+    
+    for rect in bar1:
+        ht = rect.get_height()
+        plt.text(rect.get_x()+0.25, ht+0.1, '%d' % int(ht))
 
     plt.ylabel('Count')
     plt.title('simple bar chart')
